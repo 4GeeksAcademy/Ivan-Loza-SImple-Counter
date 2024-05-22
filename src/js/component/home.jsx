@@ -1,26 +1,38 @@
-import React from "react";
-
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+import React, { useState, useEffect } from "react";
 
 //create your first component
 const Home = () => {
-	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
-	);
+  const [counter, setCounter] = useState("000000");
+
+  const updateCounter = () => {
+    setCounter((lastCount) => {
+      const newCounter = parseInt(lastCount) + 1;
+      const stringCounter = newCounter.toString();
+      const paddedCounter = stringCounter.padStart(6, "0");
+      return paddedCounter;
+    });
+  };
+
+  useEffect(() => {
+    const intervalId = setInterval(updateCounter, 1000);
+
+    // Clean up the interval when the component unmounts
+    return () => clearInterval(intervalId);
+  }, []);
+
+  return (
+    <div className="text-center">
+      <h1 className="title">Simple Counter</h1>
+      <div className="containter-fluid d-flex justify-content-center">
+        <h1 className="digit1 p-2">{counter[0]}</h1>
+        <h1 className="digit2 p-2">{counter[1]}</h1>
+        <h1 className="digit3 p-2">{counter[2]}</h1>
+        <h1 className="digit4 p-2">{counter[3]}</h1>
+        <h1 className="digit5 p-2">{counter[4]}</h1>
+        <h1 className="digit6 p-2">{counter[5]}</h1>
+      </div>
+    </div>
+  );
 };
 
 export default Home;
