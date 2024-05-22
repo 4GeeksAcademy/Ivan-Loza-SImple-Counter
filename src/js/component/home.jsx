@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 //create your first component
 const Home = () => {
@@ -14,9 +14,8 @@ const Home = () => {
   };
 
   useState(() => {
-    const intervalId = setInterval(updateCounter, 1000);
-    return () => clearInterval(intervalId);
-  }, []);
+    setInterval(updateCounter, 1000);
+  });
 
   return (
     <div className="text-center">
