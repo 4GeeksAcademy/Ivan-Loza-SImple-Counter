@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 //create your first component
 const Home = () => {
@@ -20,7 +20,7 @@ const Home = () => {
   return (
     <div className="text-center">
       <h1 className="title mt-3">Simple Counter</h1>
-      <div className="box containter-fluid d-flex justify-content-center mt-5">
+      <div className="box containter-fluid d-flex justify-content-center mt-5 p-2">
         <h1 className="digit1 p-2">{counter[0]}</h1>
         <h1 className="digit2 p-2">{counter[1]}</h1>
         <h1 className="digit3 p-2">{counter[2]}</h1>
